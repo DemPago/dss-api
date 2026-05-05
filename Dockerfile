@@ -7,4 +7,4 @@ RUN wget -q "https://ec.europa.eu/cefdigital/artifact/repository/esignaturedss/e
 RUN find /app -name "*.war"
 WORKDIR /app/dss-demo-bundle-6.4
 EXPOSE 8080
-CMD ["sh", "-c", "ls /app/dss-demo-bundle-6.4/apache-tomcat-11.0.21/bin/ && sleep 30"]
+CMD ["sh", "apache-tomcat-11.0.21/bin/catalina.sh", "run"]
