@@ -4,6 +4,6 @@ RUN wget -q "https://ec.europa.eu/cefdigital/artifact/repository/esignaturedss/e
     -O /tmp/dss.zip && \
     unzip /tmp/dss.zip -d /app && \
     rm /tmp/dss.zip
-WORKDIR /app
+WORKDIR /app/dss-demo-bundle-6.4
 EXPOSE 8080
 CMD ["java", "-jar", "dss-demo-webapp-6.4+20260415.war"]
