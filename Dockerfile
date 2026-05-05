@@ -4,7 +4,7 @@ RUN wget -q "https://ec.europa.eu/cefdigital/artifact/repository/esignaturedss/e
     -O /tmp/dss.zip && \
     unzip /tmp/dss.zip -d /app && \
     rm /tmp/dss.zip
-RUN find /app -name "*.war"
 WORKDIR /app/dss-demo-bundle-6.4
+RUN sed -i 's/port="8005"/port="-1"/' apache-tomcat-11.0.21/conf/server.xml
 EXPOSE 8080
 CMD ["sh", "apache-tomcat-11.0.21/bin/catalina.sh", "run"]
