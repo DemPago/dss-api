@@ -7,4 +7,4 @@ RUN wget -q "https://ec.europa.eu/cefdigital/artifact/repository/esignaturedss/e
 RUN find /app -name "*.war"
 WORKDIR /app/dss-demo-bundle-6.4
 EXPOSE 8080
-CMD ["java", "-Xmx400m", "-Xms200m", "-jar", "dss-demo-webapp-6.4+20260415.war"]
+CMD ["java", "-Xmx400m", "-Xms200m", "-jar", "apache-tomcat-11.0.21/webapps/ROOT.war"]
