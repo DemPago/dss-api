@@ -1,0 +1,12 @@
+.git
+*.txt
+*.pdf
+*.p12
+*.jks
+*.pfx
+*.log
+*.tmp
+.env
+*.env
+docker-compose*.yml
+README.md

@@ -1,2 +1,9 @@
 *.log
 *.tmp
+*.txt
+*.pdf
+*.p12
+*.jks
+*.pfx
+.env
+*.env
