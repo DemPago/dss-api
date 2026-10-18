@@ -45,6 +45,7 @@ docker run -d -p 8080:8080 -e JAVA_OPTS="-Xmx1g -Xms512m" dss-api
 | ARG | Default | Descrizione |
 |-----|---------|-------------|
 | `DSS_VERSION` | `6.4+20260415` | Versione del bundle DSS |
+| `TOMCAT_VERSION` | `11.0.21` | Versione di Tomcat inclusa nel bundle |
 
 ```bash
 docker build --build-arg DSS_VERSION=6.4+20260415 -t dss-api .
@@ -53,4 +54,5 @@ docker build --build-arg DSS_VERSION=6.4+20260415 -t dss-api .
 ## Note di sicurezza
 
 - Il container gira con utente non-root (`tomcat`)
+- Il servizio è esposto su tutte le interfacce (`0.0.0.0:8080`) — **nessuna autenticazione integrata**. Usare un reverse proxy (nginx, Caddy) se esposto fuori dalla rete locale
 - Non committare mai nel repo file contenenti documenti, certificati o dati personali
