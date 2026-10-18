@@ -1,0 +1,3018 @@
+openapi: 3.1.0
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /sign-with-jades/sign-document:
+    post:
+      tags:
+      - signature-j-ad-es-controller
+      operationId: signDocument
+      parameters:
+      - name: arg2
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/SignatureJAdESForm"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignResponse"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SignDocumentResponse"
+  /sign-with-jades/get-data-to-sign:
+    post:
+      tags:
+      - signature-j-ad-es-controller
+      operationId: getDataToSign
+      parameters:
+      - name: arg2
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/SignatureJAdESForm"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataToSignParams"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetDataToSignResponse"
+  /sign-multiple-documents/sign-document:
+    post:
+      tags:
+      - signature-multiple-documents-controller
+      operationId: signDocument_1
+      parameters:
+      - name: arg2
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/SignatureMultipleDocumentsForm"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignResponse"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SignDocumentResponse"
+  /sign-multiple-documents/get-data-to-sign:
+    post:
+      tags:
+      - signature-multiple-documents-controller
+      operationId: getDataToSign_1
+      parameters:
+      - name: arg2
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/SignatureMultipleDocumentsForm"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataToSignParams"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetDataToSignResponse"
+  /sign-a-pdf/sign-document:
+    post:
+      tags:
+      - signature-pdf-controller
+      operationId: signDocument_2
+      parameters:
+      - name: arg2
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/SignatureDocumentForm"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignResponse"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SignDocumentResponse"
+  /sign-a-pdf/get-data-to-sign:
+    post:
+      tags:
+      - signature-pdf-controller
+      operationId: getDataToSign_2
+      parameters:
+      - name: arg2
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/SignatureDocumentForm"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataToSignParams"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetDataToSignResponse"
+  /sign-a-document/sign-document:
+    post:
+      tags:
+      - signature-controller
+      operationId: signDocument_3
+      parameters:
+      - name: arg2
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/SignatureDocumentForm"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignResponse"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SignDocumentResponse"
+  /sign-a-document/get-data-to-sign:
+    post:
+      tags:
+      - signature-controller
+      operationId: getDataToSign_3
+      parameters:
+      - name: arg2
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/SignatureDocumentForm"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataToSignParams"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetDataToSignResponse"
+  /sign-a-digest/sign-document:
+    post:
+      tags:
+      - digest-controller
+      operationId: signDigest
+      parameters:
+      - name: arg2
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/SignatureDigestForm"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignResponse"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SignDocumentResponse"
+  /sign-a-digest/get-data-to-sign:
+    post:
+      tags:
+      - digest-controller
+      operationId: getDataToSign_4
+      parameters:
+      - name: arg2
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/SignatureDigestForm"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataToSignParams"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetDataToSignResponse"
+  /server-sign/sign:
+    post:
+      tags:
+      - server-sign-controller
+      operationId: sign
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServerSignResponse"
+  /server-sign/certificates:
+    post:
+      tags:
+      - server-sign-controller
+      operationId: certificates
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServerSignResponse"
+  /counter-sign/signatureIds:
+    post:
+      tags:
+      - counter-signature-controller
+      operationId: getSignatureIds
+      parameters:
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                documentToCounterSign:
+                  type: string
+                  format: binary
+              required:
+              - documentToCounterSign
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CounterSignatureHelperResponse"
+  /counter-sign/sign-document:
+    post:
+      tags:
+      - counter-signature-controller
+      operationId: counterSignSignature
+      parameters:
+      - name: arg2
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/CounterSignatureForm"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignResponse"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SignDocumentResponse"
+  /counter-sign/get-data-to-sign:
+    post:
+      tags:
+      - counter-signature-controller
+      operationId: getDataToCounterSign
+      parameters:
+      - name: arg2
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/CounterSignatureForm"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataToSignParams"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetDataToSignResponse"
+  /validation/diag-data.svg:
+    get:
+      tags:
+      - validation-controller
+      operationId: downloadSVG
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+    put:
+      tags:
+      - validation-controller
+      operationId: downloadSVG_2
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+    post:
+      tags:
+      - validation-controller
+      operationId: downloadSVG_1
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+    delete:
+      tags:
+      - validation-controller
+      operationId: downloadSVG_3
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+    options:
+      tags:
+      - validation-controller
+      operationId: downloadSVG_6
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+    head:
+      tags:
+      - validation-controller
+      operationId: downloadSVG_5
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+    patch:
+      tags:
+      - validation-controller
+      operationId: downloadSVG_4
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /data/packagingsByForm:
+    get:
+      tags:
+      - data-controller
+      operationId: getAllowedPackagingsByForm
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - ENVELOPED
+                  - ENVELOPING
+                  - DETACHED
+                  - INTERNALLY_DETACHED
+    put:
+      tags:
+      - data-controller
+      operationId: getAllowedPackagingsByForm_2
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - ENVELOPED
+                  - ENVELOPING
+                  - DETACHED
+                  - INTERNALLY_DETACHED
+    post:
+      tags:
+      - data-controller
+      operationId: getAllowedPackagingsByForm_1
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - ENVELOPED
+                  - ENVELOPING
+                  - DETACHED
+                  - INTERNALLY_DETACHED
+    delete:
+      tags:
+      - data-controller
+      operationId: getAllowedPackagingsByForm_3
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - ENVELOPED
+                  - ENVELOPING
+                  - DETACHED
+                  - INTERNALLY_DETACHED
+    options:
+      tags:
+      - data-controller
+      operationId: getAllowedPackagingsByForm_6
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - ENVELOPED
+                  - ENVELOPING
+                  - DETACHED
+                  - INTERNALLY_DETACHED
+    head:
+      tags:
+      - data-controller
+      operationId: getAllowedPackagingsByForm_5
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - ENVELOPED
+                  - ENVELOPING
+                  - DETACHED
+                  - INTERNALLY_DETACHED
+    patch:
+      tags:
+      - data-controller
+      operationId: getAllowedPackagingsByForm_4
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - ENVELOPED
+                  - ENVELOPING
+                  - DETACHED
+                  - INTERNALLY_DETACHED
+  /data/levelsBySerialization:
+    get:
+      tags:
+      - data-controller
+      operationId: getAllowedLevelsByJWSSerialization
+      parameters:
+      - name: serializationType
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - COMPACT_SERIALIZATION
+          - JSON_SERIALIZATION
+          - FLATTENED_JSON_SERIALIZATION
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - XML-NOT-ETSI
+                  - XAdES-BES
+                  - XAdES-EPES
+                  - XAdES-T
+                  - XAdES-LT
+                  - XAdES-C
+                  - XAdES-X
+                  - XAdES-XL
+                  - XAdES-A
+                  - XAdES-ERS
+                  - XAdES-BASELINE-B
+                  - XAdES-BASELINE-T
+                  - XAdES-BASELINE-LT
+                  - XAdES-BASELINE-LTA
+                  - CMS-NOT-ETSI
+                  - CAdES-BES
+                  - CAdES-EPES
+                  - CAdES-T
+                  - CAdES-LT
+                  - CAdES-C
+                  - CAdES-X
+                  - CAdES-XL
+                  - CAdES-A
+                  - CAdES-ERS
+                  - CAdES-BASELINE-B
+                  - CAdES-BASELINE-T
+                  - CAdES-BASELINE-LT
+                  - CAdES-BASELINE-LTA
+                  - PDF-NOT-ETSI
+                  - PKCS7-B
+                  - PKCS7-T
+                  - PKCS7-LT
+                  - PKCS7-LTA
+                  - PAdES-BES
+                  - PAdES-EPES
+                  - PAdES-LTV
+                  - PAdES-BASELINE-B
+                  - PAdES-BASELINE-T
+                  - PAdES-BASELINE-LT
+                  - PAdES-BASELINE-LTA
+                  - JSON-NOT-ETSI
+                  - JAdES-BASELINE-B
+                  - JAdES-BASELINE-T
+                  - JAdES-BASELINE-LT
+                  - JAdES-BASELINE-LTA
+                  - UNKNOWN
+    put:
+      tags:
+      - data-controller
+      operationId: getAllowedLevelsByJWSSerialization_2
+      parameters:
+      - name: serializationType
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - COMPACT_SERIALIZATION
+          - JSON_SERIALIZATION
+          - FLATTENED_JSON_SERIALIZATION
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - XML-NOT-ETSI
+                  - XAdES-BES
+                  - XAdES-EPES
+                  - XAdES-T
+                  - XAdES-LT
+                  - XAdES-C
+                  - XAdES-X
+                  - XAdES-XL
+                  - XAdES-A
+                  - XAdES-ERS
+                  - XAdES-BASELINE-B
+                  - XAdES-BASELINE-T
+                  - XAdES-BASELINE-LT
+                  - XAdES-BASELINE-LTA
+                  - CMS-NOT-ETSI
+                  - CAdES-BES
+                  - CAdES-EPES
+                  - CAdES-T
+                  - CAdES-LT
+                  - CAdES-C
+                  - CAdES-X
+                  - CAdES-XL
+                  - CAdES-A
+                  - CAdES-ERS
+                  - CAdES-BASELINE-B
+                  - CAdES-BASELINE-T
+                  - CAdES-BASELINE-LT
+                  - CAdES-BASELINE-LTA
+                  - PDF-NOT-ETSI
+                  - PKCS7-B
+                  - PKCS7-T
+                  - PKCS7-LT
+                  - PKCS7-LTA
+                  - PAdES-BES
+                  - PAdES-EPES
+                  - PAdES-LTV
+                  - PAdES-BASELINE-B
+                  - PAdES-BASELINE-T
+                  - PAdES-BASELINE-LT
+                  - PAdES-BASELINE-LTA
+                  - JSON-NOT-ETSI
+                  - JAdES-BASELINE-B
+                  - JAdES-BASELINE-T
+                  - JAdES-BASELINE-LT
+                  - JAdES-BASELINE-LTA
+                  - UNKNOWN
+    post:
+      tags:
+      - data-controller
+      operationId: getAllowedLevelsByJWSSerialization_1
+      parameters:
+      - name: serializationType
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - COMPACT_SERIALIZATION
+          - JSON_SERIALIZATION
+          - FLATTENED_JSON_SERIALIZATION
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - XML-NOT-ETSI
+                  - XAdES-BES
+                  - XAdES-EPES
+                  - XAdES-T
+                  - XAdES-LT
+                  - XAdES-C
+                  - XAdES-X
+                  - XAdES-XL
+                  - XAdES-A
+                  - XAdES-ERS
+                  - XAdES-BASELINE-B
+                  - XAdES-BASELINE-T
+                  - XAdES-BASELINE-LT
+                  - XAdES-BASELINE-LTA
+                  - CMS-NOT-ETSI
+                  - CAdES-BES
+                  - CAdES-EPES
+                  - CAdES-T
+                  - CAdES-LT
+                  - CAdES-C
+                  - CAdES-X
+                  - CAdES-XL
+                  - CAdES-A
+                  - CAdES-ERS
+                  - CAdES-BASELINE-B
+                  - CAdES-BASELINE-T
+                  - CAdES-BASELINE-LT
+                  - CAdES-BASELINE-LTA
+                  - PDF-NOT-ETSI
+                  - PKCS7-B
+                  - PKCS7-T
+                  - PKCS7-LT
+                  - PKCS7-LTA
+                  - PAdES-BES
+                  - PAdES-EPES
+                  - PAdES-LTV
+                  - PAdES-BASELINE-B
+                  - PAdES-BASELINE-T
+                  - PAdES-BASELINE-LT
+                  - PAdES-BASELINE-LTA
+                  - JSON-NOT-ETSI
+                  - JAdES-BASELINE-B
+                  - JAdES-BASELINE-T
+                  - JAdES-BASELINE-LT
+                  - JAdES-BASELINE-LTA
+                  - UNKNOWN
+    delete:
+      tags:
+      - data-controller
+      operationId: getAllowedLevelsByJWSSerialization_3
+      parameters:
+      - name: serializationType
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - COMPACT_SERIALIZATION
+          - JSON_SERIALIZATION
+          - FLATTENED_JSON_SERIALIZATION
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - XML-NOT-ETSI
+                  - XAdES-BES
+                  - XAdES-EPES
+                  - XAdES-T
+                  - XAdES-LT
+                  - XAdES-C
+                  - XAdES-X
+                  - XAdES-XL
+                  - XAdES-A
+                  - XAdES-ERS
+                  - XAdES-BASELINE-B
+                  - XAdES-BASELINE-T
+                  - XAdES-BASELINE-LT
+                  - XAdES-BASELINE-LTA
+                  - CMS-NOT-ETSI
+                  - CAdES-BES
+                  - CAdES-EPES
+                  - CAdES-T
+                  - CAdES-LT
+                  - CAdES-C
+                  - CAdES-X
+                  - CAdES-XL
+                  - CAdES-A
+                  - CAdES-ERS
+                  - CAdES-BASELINE-B
+                  - CAdES-BASELINE-T
+                  - CAdES-BASELINE-LT
+                  - CAdES-BASELINE-LTA
+                  - PDF-NOT-ETSI
+                  - PKCS7-B
+                  - PKCS7-T
+                  - PKCS7-LT
+                  - PKCS7-LTA
+                  - PAdES-BES
+                  - PAdES-EPES
+                  - PAdES-LTV
+                  - PAdES-BASELINE-B
+                  - PAdES-BASELINE-T
+                  - PAdES-BASELINE-LT
+                  - PAdES-BASELINE-LTA
+                  - JSON-NOT-ETSI
+                  - JAdES-BASELINE-B
+                  - JAdES-BASELINE-T
+                  - JAdES-BASELINE-LT
+                  - JAdES-BASELINE-LTA
+                  - UNKNOWN
+    options:
+      tags:
+      - data-controller
+      operationId: getAllowedLevelsByJWSSerialization_6
+      parameters:
+      - name: serializationType
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - COMPACT_SERIALIZATION
+          - JSON_SERIALIZATION
+          - FLATTENED_JSON_SERIALIZATION
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - XML-NOT-ETSI
+                  - XAdES-BES
+                  - XAdES-EPES
+                  - XAdES-T
+                  - XAdES-LT
+                  - XAdES-C
+                  - XAdES-X
+                  - XAdES-XL
+                  - XAdES-A
+                  - XAdES-ERS
+                  - XAdES-BASELINE-B
+                  - XAdES-BASELINE-T
+                  - XAdES-BASELINE-LT
+                  - XAdES-BASELINE-LTA
+                  - CMS-NOT-ETSI
+                  - CAdES-BES
+                  - CAdES-EPES
+                  - CAdES-T
+                  - CAdES-LT
+                  - CAdES-C
+                  - CAdES-X
+                  - CAdES-XL
+                  - CAdES-A
+                  - CAdES-ERS
+                  - CAdES-BASELINE-B
+                  - CAdES-BASELINE-T
+                  - CAdES-BASELINE-LT
+                  - CAdES-BASELINE-LTA
+                  - PDF-NOT-ETSI
+                  - PKCS7-B
+                  - PKCS7-T
+                  - PKCS7-LT
+                  - PKCS7-LTA
+                  - PAdES-BES
+                  - PAdES-EPES
+                  - PAdES-LTV
+                  - PAdES-BASELINE-B
+                  - PAdES-BASELINE-T
+                  - PAdES-BASELINE-LT
+                  - PAdES-BASELINE-LTA
+                  - JSON-NOT-ETSI
+                  - JAdES-BASELINE-B
+                  - JAdES-BASELINE-T
+                  - JAdES-BASELINE-LT
+                  - JAdES-BASELINE-LTA
+                  - UNKNOWN
+    head:
+      tags:
+      - data-controller
+      operationId: getAllowedLevelsByJWSSerialization_5
+      parameters:
+      - name: serializationType
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - COMPACT_SERIALIZATION
+          - JSON_SERIALIZATION
+          - FLATTENED_JSON_SERIALIZATION
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - XML-NOT-ETSI
+                  - XAdES-BES
+                  - XAdES-EPES
+                  - XAdES-T
+                  - XAdES-LT
+                  - XAdES-C
+                  - XAdES-X
+                  - XAdES-XL
+                  - XAdES-A
+                  - XAdES-ERS
+                  - XAdES-BASELINE-B
+                  - XAdES-BASELINE-T
+                  - XAdES-BASELINE-LT
+                  - XAdES-BASELINE-LTA
+                  - CMS-NOT-ETSI
+                  - CAdES-BES
+                  - CAdES-EPES
+                  - CAdES-T
+                  - CAdES-LT
+                  - CAdES-C
+                  - CAdES-X
+                  - CAdES-XL
+                  - CAdES-A
+                  - CAdES-ERS
+                  - CAdES-BASELINE-B
+                  - CAdES-BASELINE-T
+                  - CAdES-BASELINE-LT
+                  - CAdES-BASELINE-LTA
+                  - PDF-NOT-ETSI
+                  - PKCS7-B
+                  - PKCS7-T
+                  - PKCS7-LT
+                  - PKCS7-LTA
+                  - PAdES-BES
+                  - PAdES-EPES
+                  - PAdES-LTV
+                  - PAdES-BASELINE-B
+                  - PAdES-BASELINE-T
+                  - PAdES-BASELINE-LT
+                  - PAdES-BASELINE-LTA
+                  - JSON-NOT-ETSI
+                  - JAdES-BASELINE-B
+                  - JAdES-BASELINE-T
+                  - JAdES-BASELINE-LT
+                  - JAdES-BASELINE-LTA
+                  - UNKNOWN
+    patch:
+      tags:
+      - data-controller
+      operationId: getAllowedLevelsByJWSSerialization_4
+      parameters:
+      - name: serializationType
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - COMPACT_SERIALIZATION
+          - JSON_SERIALIZATION
+          - FLATTENED_JSON_SERIALIZATION
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - XML-NOT-ETSI
+                  - XAdES-BES
+                  - XAdES-EPES
+                  - XAdES-T
+                  - XAdES-LT
+                  - XAdES-C
+                  - XAdES-X
+                  - XAdES-XL
+                  - XAdES-A
+                  - XAdES-ERS
+                  - XAdES-BASELINE-B
+                  - XAdES-BASELINE-T
+                  - XAdES-BASELINE-LT
+                  - XAdES-BASELINE-LTA
+                  - CMS-NOT-ETSI
+                  - CAdES-BES
+                  - CAdES-EPES
+                  - CAdES-T
+                  - CAdES-LT
+                  - CAdES-C
+                  - CAdES-X
+                  - CAdES-XL
+                  - CAdES-A
+                  - CAdES-ERS
+                  - CAdES-BASELINE-B
+                  - CAdES-BASELINE-T
+                  - CAdES-BASELINE-LT
+                  - CAdES-BASELINE-LTA
+                  - PDF-NOT-ETSI
+                  - PKCS7-B
+                  - PKCS7-T
+                  - PKCS7-LT
+                  - PKCS7-LTA
+                  - PAdES-BES
+                  - PAdES-EPES
+                  - PAdES-LTV
+                  - PAdES-BASELINE-B
+                  - PAdES-BASELINE-T
+                  - PAdES-BASELINE-LT
+                  - PAdES-BASELINE-LTA
+                  - JSON-NOT-ETSI
+                  - JAdES-BASELINE-B
+                  - JAdES-BASELINE-T
+                  - JAdES-BASELINE-LT
+                  - JAdES-BASELINE-LTA
+                  - UNKNOWN
+  /data/levelsByForm:
+    get:
+      tags:
+      - data-controller
+      operationId: getAllowedLevelsByForm
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - XML-NOT-ETSI
+                  - XAdES-BES
+                  - XAdES-EPES
+                  - XAdES-T
+                  - XAdES-LT
+                  - XAdES-C
+                  - XAdES-X
+                  - XAdES-XL
+                  - XAdES-A
+                  - XAdES-ERS
+                  - XAdES-BASELINE-B
+                  - XAdES-BASELINE-T
+                  - XAdES-BASELINE-LT
+                  - XAdES-BASELINE-LTA
+                  - CMS-NOT-ETSI
+                  - CAdES-BES
+                  - CAdES-EPES
+                  - CAdES-T
+                  - CAdES-LT
+                  - CAdES-C
+                  - CAdES-X
+                  - CAdES-XL
+                  - CAdES-A
+                  - CAdES-ERS
+                  - CAdES-BASELINE-B
+                  - CAdES-BASELINE-T
+                  - CAdES-BASELINE-LT
+                  - CAdES-BASELINE-LTA
+                  - PDF-NOT-ETSI
+                  - PKCS7-B
+                  - PKCS7-T
+                  - PKCS7-LT
+                  - PKCS7-LTA
+                  - PAdES-BES
+                  - PAdES-EPES
+                  - PAdES-LTV
+                  - PAdES-BASELINE-B
+                  - PAdES-BASELINE-T
+                  - PAdES-BASELINE-LT
+                  - PAdES-BASELINE-LTA
+                  - JSON-NOT-ETSI
+                  - JAdES-BASELINE-B
+                  - JAdES-BASELINE-T
+                  - JAdES-BASELINE-LT
+                  - JAdES-BASELINE-LTA
+                  - UNKNOWN
+    put:
+      tags:
+      - data-controller
+      operationId: getAllowedLevelsByForm_2
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - XML-NOT-ETSI
+                  - XAdES-BES
+                  - XAdES-EPES
+                  - XAdES-T
+                  - XAdES-LT
+                  - XAdES-C
+                  - XAdES-X
+                  - XAdES-XL
+                  - XAdES-A
+                  - XAdES-ERS
+                  - XAdES-BASELINE-B
+                  - XAdES-BASELINE-T
+                  - XAdES-BASELINE-LT
+                  - XAdES-BASELINE-LTA
+                  - CMS-NOT-ETSI
+                  - CAdES-BES
+                  - CAdES-EPES
+                  - CAdES-T
+                  - CAdES-LT
+                  - CAdES-C
+                  - CAdES-X
+                  - CAdES-XL
+                  - CAdES-A
+                  - CAdES-ERS
+                  - CAdES-BASELINE-B
+                  - CAdES-BASELINE-T
+                  - CAdES-BASELINE-LT
+                  - CAdES-BASELINE-LTA
+                  - PDF-NOT-ETSI
+                  - PKCS7-B
+                  - PKCS7-T
+                  - PKCS7-LT
+                  - PKCS7-LTA
+                  - PAdES-BES
+                  - PAdES-EPES
+                  - PAdES-LTV
+                  - PAdES-BASELINE-B
+                  - PAdES-BASELINE-T
+                  - PAdES-BASELINE-LT
+                  - PAdES-BASELINE-LTA
+                  - JSON-NOT-ETSI
+                  - JAdES-BASELINE-B
+                  - JAdES-BASELINE-T
+                  - JAdES-BASELINE-LT
+                  - JAdES-BASELINE-LTA
+                  - UNKNOWN
+    post:
+      tags:
+      - data-controller
+      operationId: getAllowedLevelsByForm_1
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - XML-NOT-ETSI
+                  - XAdES-BES
+                  - XAdES-EPES
+                  - XAdES-T
+                  - XAdES-LT
+                  - XAdES-C
+                  - XAdES-X
+                  - XAdES-XL
+                  - XAdES-A
+                  - XAdES-ERS
+                  - XAdES-BASELINE-B
+                  - XAdES-BASELINE-T
+                  - XAdES-BASELINE-LT
+                  - XAdES-BASELINE-LTA
+                  - CMS-NOT-ETSI
+                  - CAdES-BES
+                  - CAdES-EPES
+                  - CAdES-T
+                  - CAdES-LT
+                  - CAdES-C
+                  - CAdES-X
+                  - CAdES-XL
+                  - CAdES-A
+                  - CAdES-ERS
+                  - CAdES-BASELINE-B
+                  - CAdES-BASELINE-T
+                  - CAdES-BASELINE-LT
+                  - CAdES-BASELINE-LTA
+                  - PDF-NOT-ETSI
+                  - PKCS7-B
+                  - PKCS7-T
+                  - PKCS7-LT
+                  - PKCS7-LTA
+                  - PAdES-BES
+                  - PAdES-EPES
+                  - PAdES-LTV
+                  - PAdES-BASELINE-B
+                  - PAdES-BASELINE-T
+                  - PAdES-BASELINE-LT
+                  - PAdES-BASELINE-LTA
+                  - JSON-NOT-ETSI
+                  - JAdES-BASELINE-B
+                  - JAdES-BASELINE-T
+                  - JAdES-BASELINE-LT
+                  - JAdES-BASELINE-LTA
+                  - UNKNOWN
+    delete:
+      tags:
+      - data-controller
+      operationId: getAllowedLevelsByForm_3
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - XML-NOT-ETSI
+                  - XAdES-BES
+                  - XAdES-EPES
+                  - XAdES-T
+                  - XAdES-LT
+                  - XAdES-C
+                  - XAdES-X
+                  - XAdES-XL
+                  - XAdES-A
+                  - XAdES-ERS
+                  - XAdES-BASELINE-B
+                  - XAdES-BASELINE-T
+                  - XAdES-BASELINE-LT
+                  - XAdES-BASELINE-LTA
+                  - CMS-NOT-ETSI
+                  - CAdES-BES
+                  - CAdES-EPES
+                  - CAdES-T
+                  - CAdES-LT
+                  - CAdES-C
+                  - CAdES-X
+                  - CAdES-XL
+                  - CAdES-A
+                  - CAdES-ERS
+                  - CAdES-BASELINE-B
+                  - CAdES-BASELINE-T
+                  - CAdES-BASELINE-LT
+                  - CAdES-BASELINE-LTA
+                  - PDF-NOT-ETSI
+                  - PKCS7-B
+                  - PKCS7-T
+                  - PKCS7-LT
+                  - PKCS7-LTA
+                  - PAdES-BES
+                  - PAdES-EPES
+                  - PAdES-LTV
+                  - PAdES-BASELINE-B
+                  - PAdES-BASELINE-T
+                  - PAdES-BASELINE-LT
+                  - PAdES-BASELINE-LTA
+                  - JSON-NOT-ETSI
+                  - JAdES-BASELINE-B
+                  - JAdES-BASELINE-T
+                  - JAdES-BASELINE-LT
+                  - JAdES-BASELINE-LTA
+                  - UNKNOWN
+    options:
+      tags:
+      - data-controller
+      operationId: getAllowedLevelsByForm_6
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - XML-NOT-ETSI
+                  - XAdES-BES
+                  - XAdES-EPES
+                  - XAdES-T
+                  - XAdES-LT
+                  - XAdES-C
+                  - XAdES-X
+                  - XAdES-XL
+                  - XAdES-A
+                  - XAdES-ERS
+                  - XAdES-BASELINE-B
+                  - XAdES-BASELINE-T
+                  - XAdES-BASELINE-LT
+                  - XAdES-BASELINE-LTA
+                  - CMS-NOT-ETSI
+                  - CAdES-BES
+                  - CAdES-EPES
+                  - CAdES-T
+                  - CAdES-LT
+                  - CAdES-C
+                  - CAdES-X
+                  - CAdES-XL
+                  - CAdES-A
+                  - CAdES-ERS
+                  - CAdES-BASELINE-B
+                  - CAdES-BASELINE-T
+                  - CAdES-BASELINE-LT
+                  - CAdES-BASELINE-LTA
+                  - PDF-NOT-ETSI
+                  - PKCS7-B
+                  - PKCS7-T
+                  - PKCS7-LT
+                  - PKCS7-LTA
+                  - PAdES-BES
+                  - PAdES-EPES
+                  - PAdES-LTV
+                  - PAdES-BASELINE-B
+                  - PAdES-BASELINE-T
+                  - PAdES-BASELINE-LT
+                  - PAdES-BASELINE-LTA
+                  - JSON-NOT-ETSI
+                  - JAdES-BASELINE-B
+                  - JAdES-BASELINE-T
+                  - JAdES-BASELINE-LT
+                  - JAdES-BASELINE-LTA
+                  - UNKNOWN
+    head:
+      tags:
+      - data-controller
+      operationId: getAllowedLevelsByForm_5
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - XML-NOT-ETSI
+                  - XAdES-BES
+                  - XAdES-EPES
+                  - XAdES-T
+                  - XAdES-LT
+                  - XAdES-C
+                  - XAdES-X
+                  - XAdES-XL
+                  - XAdES-A
+                  - XAdES-ERS
+                  - XAdES-BASELINE-B
+                  - XAdES-BASELINE-T
+                  - XAdES-BASELINE-LT
+                  - XAdES-BASELINE-LTA
+                  - CMS-NOT-ETSI
+                  - CAdES-BES
+                  - CAdES-EPES
+                  - CAdES-T
+                  - CAdES-LT
+                  - CAdES-C
+                  - CAdES-X
+                  - CAdES-XL
+                  - CAdES-A
+                  - CAdES-ERS
+                  - CAdES-BASELINE-B
+                  - CAdES-BASELINE-T
+                  - CAdES-BASELINE-LT
+                  - CAdES-BASELINE-LTA
+                  - PDF-NOT-ETSI
+                  - PKCS7-B
+                  - PKCS7-T
+                  - PKCS7-LT
+                  - PKCS7-LTA
+                  - PAdES-BES
+                  - PAdES-EPES
+                  - PAdES-LTV
+                  - PAdES-BASELINE-B
+                  - PAdES-BASELINE-T
+                  - PAdES-BASELINE-LT
+                  - PAdES-BASELINE-LTA
+                  - JSON-NOT-ETSI
+                  - JAdES-BASELINE-B
+                  - JAdES-BASELINE-T
+                  - JAdES-BASELINE-LT
+                  - JAdES-BASELINE-LTA
+                  - UNKNOWN
+    patch:
+      tags:
+      - data-controller
+      operationId: getAllowedLevelsByForm_4
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      - name: process
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - SIGNATURE
+          - SIGNATURE_SERVER_SIGN
+          - EXTENSION
+          - DIGEST_SIGN
+          - DIGEST_SIGN_SERVER_SIGN
+          - COUNTER_SIGN
+          - COUNTER_SIGN_SERVER_SIGN
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - XML-NOT-ETSI
+                  - XAdES-BES
+                  - XAdES-EPES
+                  - XAdES-T
+                  - XAdES-LT
+                  - XAdES-C
+                  - XAdES-X
+                  - XAdES-XL
+                  - XAdES-A
+                  - XAdES-ERS
+                  - XAdES-BASELINE-B
+                  - XAdES-BASELINE-T
+                  - XAdES-BASELINE-LT
+                  - XAdES-BASELINE-LTA
+                  - CMS-NOT-ETSI
+                  - CAdES-BES
+                  - CAdES-EPES
+                  - CAdES-T
+                  - CAdES-LT
+                  - CAdES-C
+                  - CAdES-X
+                  - CAdES-XL
+                  - CAdES-A
+                  - CAdES-ERS
+                  - CAdES-BASELINE-B
+                  - CAdES-BASELINE-T
+                  - CAdES-BASELINE-LT
+                  - CAdES-BASELINE-LTA
+                  - PDF-NOT-ETSI
+                  - PKCS7-B
+                  - PKCS7-T
+                  - PKCS7-LT
+                  - PKCS7-LTA
+                  - PAdES-BES
+                  - PAdES-EPES
+                  - PAdES-LTV
+                  - PAdES-BASELINE-B
+                  - PAdES-BASELINE-T
+                  - PAdES-BASELINE-LT
+                  - PAdES-BASELINE-LTA
+                  - JSON-NOT-ETSI
+                  - JAdES-BASELINE-B
+                  - JAdES-BASELINE-T
+                  - JAdES-BASELINE-LT
+                  - JAdES-BASELINE-LTA
+                  - UNKNOWN
+  /data/digestAlgosByForm:
+    get:
+      tags:
+      - data-controller
+      operationId: getAllowedDigestAlgorithmsBySignatureForm
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - SHA1
+                  - SHA224
+                  - SHA256
+                  - SHA384
+                  - SHA512
+                  - SHA3_224
+                  - SHA3_256
+                  - SHA3_384
+                  - SHA3_512
+                  - SHAKE128
+                  - SHAKE256
+                  - SHAKE256_512
+                  - RIPEMD160
+                  - MD2
+                  - MD5
+                  - WHIRLPOOL
+    put:
+      tags:
+      - data-controller
+      operationId: getAllowedDigestAlgorithmsBySignatureForm_2
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - SHA1
+                  - SHA224
+                  - SHA256
+                  - SHA384
+                  - SHA512
+                  - SHA3_224
+                  - SHA3_256
+                  - SHA3_384
+                  - SHA3_512
+                  - SHAKE128
+                  - SHAKE256
+                  - SHAKE256_512
+                  - RIPEMD160
+                  - MD2
+                  - MD5
+                  - WHIRLPOOL
+    post:
+      tags:
+      - data-controller
+      operationId: getAllowedDigestAlgorithmsBySignatureForm_1
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - SHA1
+                  - SHA224
+                  - SHA256
+                  - SHA384
+                  - SHA512
+                  - SHA3_224
+                  - SHA3_256
+                  - SHA3_384
+                  - SHA3_512
+                  - SHAKE128
+                  - SHAKE256
+                  - SHAKE256_512
+                  - RIPEMD160
+                  - MD2
+                  - MD5
+                  - WHIRLPOOL
+    delete:
+      tags:
+      - data-controller
+      operationId: getAllowedDigestAlgorithmsBySignatureForm_3
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - SHA1
+                  - SHA224
+                  - SHA256
+                  - SHA384
+                  - SHA512
+                  - SHA3_224
+                  - SHA3_256
+                  - SHA3_384
+                  - SHA3_512
+                  - SHAKE128
+                  - SHAKE256
+                  - SHAKE256_512
+                  - RIPEMD160
+                  - MD2
+                  - MD5
+                  - WHIRLPOOL
+    options:
+      tags:
+      - data-controller
+      operationId: getAllowedDigestAlgorithmsBySignatureForm_6
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - SHA1
+                  - SHA224
+                  - SHA256
+                  - SHA384
+                  - SHA512
+                  - SHA3_224
+                  - SHA3_256
+                  - SHA3_384
+                  - SHA3_512
+                  - SHAKE128
+                  - SHAKE256
+                  - SHAKE256_512
+                  - RIPEMD160
+                  - MD2
+                  - MD5
+                  - WHIRLPOOL
+    head:
+      tags:
+      - data-controller
+      operationId: getAllowedDigestAlgorithmsBySignatureForm_5
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - SHA1
+                  - SHA224
+                  - SHA256
+                  - SHA384
+                  - SHA512
+                  - SHA3_224
+                  - SHA3_256
+                  - SHA3_384
+                  - SHA3_512
+                  - SHAKE128
+                  - SHAKE256
+                  - SHAKE256_512
+                  - RIPEMD160
+                  - MD2
+                  - MD5
+                  - WHIRLPOOL
+    patch:
+      tags:
+      - data-controller
+      operationId: getAllowedDigestAlgorithmsBySignatureForm_4
+      parameters:
+      - name: form
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - SHA1
+                  - SHA224
+                  - SHA256
+                  - SHA384
+                  - SHA512
+                  - SHA3_224
+                  - SHA3_256
+                  - SHA3_384
+                  - SHA3_512
+                  - SHAKE128
+                  - SHAKE256
+                  - SHAKE256_512
+                  - RIPEMD160
+                  - MD2
+                  - MD5
+                  - WHIRLPOOL
+components:
+  schemas:
+    SignResponse:
+      type: object
+      properties:
+        tokenId:
+          $ref: "#/components/schemas/TokenId"
+        signatureValue:
+          type: string
+          format: byte
+      required:
+      - signatureValue
+    TokenId:
+      type: object
+      properties:
+        id:
+          type: string
+    SignatureJAdESForm:
+      type: object
+      properties:
+        nexuDetected:
+          type: boolean
+        signingDate:
+          type: string
+          format: date-time
+        signWithExpiredCertificate:
+          type: boolean
+        addContentTimestamp:
+          type: boolean
+        signatureForm:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+        signatureLevel:
+          type: string
+          enum:
+          - XML-NOT-ETSI
+          - XAdES-BES
+          - XAdES-EPES
+          - XAdES-T
+          - XAdES-LT
+          - XAdES-C
+          - XAdES-X
+          - XAdES-XL
+          - XAdES-A
+          - XAdES-ERS
+          - XAdES-BASELINE-B
+          - XAdES-BASELINE-T
+          - XAdES-BASELINE-LT
+          - XAdES-BASELINE-LTA
+          - CMS-NOT-ETSI
+          - CAdES-BES
+          - CAdES-EPES
+          - CAdES-T
+          - CAdES-LT
+          - CAdES-C
+          - CAdES-X
+          - CAdES-XL
+          - CAdES-A
+          - CAdES-ERS
+          - CAdES-BASELINE-B
+          - CAdES-BASELINE-T
+          - CAdES-BASELINE-LT
+          - CAdES-BASELINE-LTA
+          - PDF-NOT-ETSI
+          - PKCS7-B
+          - PKCS7-T
+          - PKCS7-LT
+          - PKCS7-LTA
+          - PAdES-BES
+          - PAdES-EPES
+          - PAdES-LTV
+          - PAdES-BASELINE-B
+          - PAdES-BASELINE-T
+          - PAdES-BASELINE-LT
+          - PAdES-BASELINE-LTA
+          - JSON-NOT-ETSI
+          - JAdES-BASELINE-B
+          - JAdES-BASELINE-T
+          - JAdES-BASELINE-LT
+          - JAdES-BASELINE-LTA
+          - UNKNOWN
+        digestAlgorithm:
+          type: string
+          enum:
+          - SHA1
+          - SHA224
+          - SHA256
+          - SHA384
+          - SHA512
+          - SHA3_224
+          - SHA3_256
+          - SHA3_384
+          - SHA3_512
+          - SHAKE128
+          - SHAKE256
+          - SHAKE256_512
+          - RIPEMD160
+          - MD2
+          - MD5
+          - WHIRLPOOL
+        certificate:
+          type: string
+          format: byte
+        certificateChain:
+          type: array
+          items:
+            type: string
+            format: byte
+        encryptionAlgorithm:
+          type: string
+          enum:
+          - RSA
+          - RSASSA_PSS
+          - DSA
+          - ECDSA
+          - PLAIN_ECDSA
+          - X25519
+          - X448
+          - EDDSA
+          - HMAC
+        signatureValue:
+          type: string
+          format: byte
+        contentTimestamp:
+          $ref: "#/components/schemas/TimestampDTO"
+        documentsToSign:
+          type: array
+          items:
+            type: string
+            format: binary
+        jwsSerializationType:
+          type: string
+          enum:
+          - COMPACT_SERIALIZATION
+          - JSON_SERIALIZATION
+          - FLATTENED_JSON_SERIALIZATION
+        signaturePackaging:
+          type: string
+          enum:
+          - ENVELOPED
+          - ENVELOPING
+          - DETACHED
+          - INTERNALLY_DETACHED
+        sigDMechanism:
+          type: string
+          enum:
+          - HTTP_HEADERS
+          - OBJECT_ID_BY_URI
+          - OBJECT_ID_BY_URI_HASH
+          - NO_SIG_D
+        base64UrlEncodedPayload:
+          type: boolean
+        base64UrlEncodedEtsiU:
+          type: boolean
+        documentsToSignConfigurationValid:
+          type: boolean
+        sigDMechanismValid:
+          type: boolean
+      required:
+      - digestAlgorithm
+      - jwsSerializationType
+      - signatureForm
+      - signatureLevel
+      - signaturePackaging
+    TimestampDTO:
+      type: object
+      properties:
+        binaries:
+          type: string
+          format: byte
+        canonicalizationMethod:
+          type: string
+        type:
+          type: string
+          enum:
+          - CONTENT_TIMESTAMP
+          - ALL_DATA_OBJECTS_TIMESTAMP
+          - INDIVIDUAL_DATA_OBJECTS_TIMESTAMP
+          - SIGNATURE_TIMESTAMP
+          - VRI_TIMESTAMP
+          - VALIDATION_DATA_REFSONLY_TIMESTAMP
+          - VALIDATION_DATA_TIMESTAMP
+          - CONTAINER_TIMESTAMP
+          - DOCUMENT_TIMESTAMP
+          - ARCHIVE_TIMESTAMP
+          - EVIDENCE_RECORD_TIMESTAMP
+        includes:
+          type: array
+          items:
+            $ref: "#/components/schemas/TimestampIncludeDTO"
+    TimestampIncludeDTO:
+      type: object
+      properties:
+        uri:
+          type: string
+        referencedData:
+          type: boolean
+    SignDocumentResponse:
+      type: object
+      properties:
+        urlToDownload:
+          type: string
+    DataToSignParams:
+      type: object
+      properties:
+        signingCertificate:
+          type: string
+          format: byte
+        certificateChain:
+          type: array
+          items:
+            type: string
+            format: byte
+        encryptionAlgorithm:
+          type: string
+          enum:
+          - RSA
+          - RSASSA_PSS
+          - DSA
+          - ECDSA
+          - PLAIN_ECDSA
+          - X25519
+          - X448
+          - EDDSA
+          - HMAC
+      required:
+      - certificateChain
+      - encryptionAlgorithm
+      - signingCertificate
+    GetDataToSignResponse:
+      type: object
+      properties:
+        dataToSign:
+          type: string
+          format: byte
+    SignatureMultipleDocumentsForm:
+      type: object
+      properties:
+        nexuDetected:
+          type: boolean
+        signingDate:
+          type: string
+          format: date-time
+        signWithExpiredCertificate:
+          type: boolean
+        addContentTimestamp:
+          type: boolean
+        signatureForm:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+        signatureLevel:
+          type: string
+          enum:
+          - XML-NOT-ETSI
+          - XAdES-BES
+          - XAdES-EPES
+          - XAdES-T
+          - XAdES-LT
+          - XAdES-C
+          - XAdES-X
+          - XAdES-XL
+          - XAdES-A
+          - XAdES-ERS
+          - XAdES-BASELINE-B
+          - XAdES-BASELINE-T
+          - XAdES-BASELINE-LT
+          - XAdES-BASELINE-LTA
+          - CMS-NOT-ETSI
+          - CAdES-BES
+          - CAdES-EPES
+          - CAdES-T
+          - CAdES-LT
+          - CAdES-C
+          - CAdES-X
+          - CAdES-XL
+          - CAdES-A
+          - CAdES-ERS
+          - CAdES-BASELINE-B
+          - CAdES-BASELINE-T
+          - CAdES-BASELINE-LT
+          - CAdES-BASELINE-LTA
+          - PDF-NOT-ETSI
+          - PKCS7-B
+          - PKCS7-T
+          - PKCS7-LT
+          - PKCS7-LTA
+          - PAdES-BES
+          - PAdES-EPES
+          - PAdES-LTV
+          - PAdES-BASELINE-B
+          - PAdES-BASELINE-T
+          - PAdES-BASELINE-LT
+          - PAdES-BASELINE-LTA
+          - JSON-NOT-ETSI
+          - JAdES-BASELINE-B
+          - JAdES-BASELINE-T
+          - JAdES-BASELINE-LT
+          - JAdES-BASELINE-LTA
+          - UNKNOWN
+        digestAlgorithm:
+          type: string
+          enum:
+          - SHA1
+          - SHA224
+          - SHA256
+          - SHA384
+          - SHA512
+          - SHA3_224
+          - SHA3_256
+          - SHA3_384
+          - SHA3_512
+          - SHAKE128
+          - SHAKE256
+          - SHAKE256_512
+          - RIPEMD160
+          - MD2
+          - MD5
+          - WHIRLPOOL
+        certificate:
+          type: string
+          format: byte
+        certificateChain:
+          type: array
+          items:
+            type: string
+            format: byte
+        encryptionAlgorithm:
+          type: string
+          enum:
+          - RSA
+          - RSASSA_PSS
+          - DSA
+          - ECDSA
+          - PLAIN_ECDSA
+          - X25519
+          - X448
+          - EDDSA
+          - HMAC
+        signatureValue:
+          type: string
+          format: byte
+        contentTimestamp:
+          $ref: "#/components/schemas/TimestampDTO"
+        containerType:
+          type: string
+          enum:
+          - ASiC-S
+          - ASiC-E
+        documentsToSign:
+          type: array
+          items:
+            type: string
+            format: binary
+      required:
+      - containerType
+      - digestAlgorithm
+      - signatureForm
+      - signatureLevel
+    SignatureDocumentForm:
+      type: object
+      properties:
+        nexuDetected:
+          type: boolean
+        signingDate:
+          type: string
+          format: date-time
+        signWithExpiredCertificate:
+          type: boolean
+        addContentTimestamp:
+          type: boolean
+        signatureForm:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+        signatureLevel:
+          type: string
+          enum:
+          - XML-NOT-ETSI
+          - XAdES-BES
+          - XAdES-EPES
+          - XAdES-T
+          - XAdES-LT
+          - XAdES-C
+          - XAdES-X
+          - XAdES-XL
+          - XAdES-A
+          - XAdES-ERS
+          - XAdES-BASELINE-B
+          - XAdES-BASELINE-T
+          - XAdES-BASELINE-LT
+          - XAdES-BASELINE-LTA
+          - CMS-NOT-ETSI
+          - CAdES-BES
+          - CAdES-EPES
+          - CAdES-T
+          - CAdES-LT
+          - CAdES-C
+          - CAdES-X
+          - CAdES-XL
+          - CAdES-A
+          - CAdES-ERS
+          - CAdES-BASELINE-B
+          - CAdES-BASELINE-T
+          - CAdES-BASELINE-LT
+          - CAdES-BASELINE-LTA
+          - PDF-NOT-ETSI
+          - PKCS7-B
+          - PKCS7-T
+          - PKCS7-LT
+          - PKCS7-LTA
+          - PAdES-BES
+          - PAdES-EPES
+          - PAdES-LTV
+          - PAdES-BASELINE-B
+          - PAdES-BASELINE-T
+          - PAdES-BASELINE-LT
+          - PAdES-BASELINE-LTA
+          - JSON-NOT-ETSI
+          - JAdES-BASELINE-B
+          - JAdES-BASELINE-T
+          - JAdES-BASELINE-LT
+          - JAdES-BASELINE-LTA
+          - UNKNOWN
+        digestAlgorithm:
+          type: string
+          enum:
+          - SHA1
+          - SHA224
+          - SHA256
+          - SHA384
+          - SHA512
+          - SHA3_224
+          - SHA3_256
+          - SHA3_384
+          - SHA3_512
+          - SHAKE128
+          - SHAKE256
+          - SHAKE256_512
+          - RIPEMD160
+          - MD2
+          - MD5
+          - WHIRLPOOL
+        certificate:
+          type: string
+          format: byte
+        certificateChain:
+          type: array
+          items:
+            type: string
+            format: byte
+        encryptionAlgorithm:
+          type: string
+          enum:
+          - RSA
+          - RSASSA_PSS
+          - DSA
+          - ECDSA
+          - PLAIN_ECDSA
+          - X25519
+          - X448
+          - EDDSA
+          - HMAC
+        signatureValue:
+          type: string
+          format: byte
+        contentTimestamp:
+          $ref: "#/components/schemas/TimestampDTO"
+        documentToSign:
+          type: string
+          format: binary
+        signaturePackaging:
+          type: string
+          enum:
+          - ENVELOPED
+          - ENVELOPING
+          - DETACHED
+          - INTERNALLY_DETACHED
+        containerType:
+          type: string
+          enum:
+          - ASiC-S
+          - ASiC-E
+      required:
+      - digestAlgorithm
+      - signatureForm
+      - signatureLevel
+      - signaturePackaging
+    SignatureDigestForm:
+      type: object
+      properties:
+        nexuDetected:
+          type: boolean
+        signingDate:
+          type: string
+          format: date-time
+        signWithExpiredCertificate:
+          type: boolean
+        addContentTimestamp:
+          type: boolean
+        signatureForm:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+        signatureLevel:
+          type: string
+          enum:
+          - XML-NOT-ETSI
+          - XAdES-BES
+          - XAdES-EPES
+          - XAdES-T
+          - XAdES-LT
+          - XAdES-C
+          - XAdES-X
+          - XAdES-XL
+          - XAdES-A
+          - XAdES-ERS
+          - XAdES-BASELINE-B
+          - XAdES-BASELINE-T
+          - XAdES-BASELINE-LT
+          - XAdES-BASELINE-LTA
+          - CMS-NOT-ETSI
+          - CAdES-BES
+          - CAdES-EPES
+          - CAdES-T
+          - CAdES-LT
+          - CAdES-C
+          - CAdES-X
+          - CAdES-XL
+          - CAdES-A
+          - CAdES-ERS
+          - CAdES-BASELINE-B
+          - CAdES-BASELINE-T
+          - CAdES-BASELINE-LT
+          - CAdES-BASELINE-LTA
+          - PDF-NOT-ETSI
+          - PKCS7-B
+          - PKCS7-T
+          - PKCS7-LT
+          - PKCS7-LTA
+          - PAdES-BES
+          - PAdES-EPES
+          - PAdES-LTV
+          - PAdES-BASELINE-B
+          - PAdES-BASELINE-T
+          - PAdES-BASELINE-LT
+          - PAdES-BASELINE-LTA
+          - JSON-NOT-ETSI
+          - JAdES-BASELINE-B
+          - JAdES-BASELINE-T
+          - JAdES-BASELINE-LT
+          - JAdES-BASELINE-LTA
+          - UNKNOWN
+        digestAlgorithm:
+          type: string
+          enum:
+          - SHA1
+          - SHA224
+          - SHA256
+          - SHA384
+          - SHA512
+          - SHA3_224
+          - SHA3_256
+          - SHA3_384
+          - SHA3_512
+          - SHAKE128
+          - SHAKE256
+          - SHAKE256_512
+          - RIPEMD160
+          - MD2
+          - MD5
+          - WHIRLPOOL
+        certificate:
+          type: string
+          format: byte
+        certificateChain:
+          type: array
+          items:
+            type: string
+            format: byte
+        encryptionAlgorithm:
+          type: string
+          enum:
+          - RSA
+          - RSASSA_PSS
+          - DSA
+          - ECDSA
+          - PLAIN_ECDSA
+          - X25519
+          - X448
+          - EDDSA
+          - HMAC
+        signatureValue:
+          type: string
+          format: byte
+        contentTimestamp:
+          $ref: "#/components/schemas/TimestampDTO"
+        documentName:
+          type: string
+        digestToSign:
+          type: string
+          minLength: 1
+      required:
+      - digestAlgorithm
+      - digestToSign
+      - documentName
+      - signatureForm
+      - signatureLevel
+    SignRequest:
+      type: object
+      properties:
+        digestAlgorithm:
+          type: string
+          enum:
+          - SHA1
+          - SHA224
+          - SHA256
+          - SHA384
+          - SHA512
+          - SHA3_224
+          - SHA3_256
+          - SHA3_384
+          - SHA3_512
+          - SHAKE128
+          - SHAKE256
+          - SHAKE256_512
+          - RIPEMD160
+          - MD2
+          - MD5
+          - WHIRLPOOL
+        keyId:
+          type: string
+        toBeSigned:
+          $ref: "#/components/schemas/ToBeSigned"
+        tokenId:
+          $ref: "#/components/schemas/TokenId"
+    ToBeSigned:
+      type: object
+      properties:
+        bytes:
+          type: string
+          format: byte
+    ServerSignResponse:
+      type: object
+      properties:
+        response:
+          $ref: "#/components/schemas/ServerSignResponseBody"
+    ServerSignResponseBody:
+      type: object
+      properties:
+        tokenId:
+          $ref: "#/components/schemas/TokenId"
+    CounterSignatureHelperResponse:
+      type: object
+      properties:
+        signatureIds:
+          type: array
+          items:
+            type: string
+        signatureForm:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+        signatureLevels:
+          type: array
+          items:
+            type: string
+            enum:
+            - XML-NOT-ETSI
+            - XAdES-BES
+            - XAdES-EPES
+            - XAdES-T
+            - XAdES-LT
+            - XAdES-C
+            - XAdES-X
+            - XAdES-XL
+            - XAdES-A
+            - XAdES-ERS
+            - XAdES-BASELINE-B
+            - XAdES-BASELINE-T
+            - XAdES-BASELINE-LT
+            - XAdES-BASELINE-LTA
+            - CMS-NOT-ETSI
+            - CAdES-BES
+            - CAdES-EPES
+            - CAdES-T
+            - CAdES-LT
+            - CAdES-C
+            - CAdES-X
+            - CAdES-XL
+            - CAdES-A
+            - CAdES-ERS
+            - CAdES-BASELINE-B
+            - CAdES-BASELINE-T
+            - CAdES-BASELINE-LT
+            - CAdES-BASELINE-LTA
+            - PDF-NOT-ETSI
+            - PKCS7-B
+            - PKCS7-T
+            - PKCS7-LT
+            - PKCS7-LTA
+            - PAdES-BES
+            - PAdES-EPES
+            - PAdES-LTV
+            - PAdES-BASELINE-B
+            - PAdES-BASELINE-T
+            - PAdES-BASELINE-LT
+            - PAdES-BASELINE-LTA
+            - JSON-NOT-ETSI
+            - JAdES-BASELINE-B
+            - JAdES-BASELINE-T
+            - JAdES-BASELINE-LT
+            - JAdES-BASELINE-LTA
+            - UNKNOWN
+    CounterSignatureForm:
+      type: object
+      properties:
+        nexuDetected:
+          type: boolean
+        signingDate:
+          type: string
+          format: date-time
+        signWithExpiredCertificate:
+          type: boolean
+        addContentTimestamp:
+          type: boolean
+        signatureForm:
+          type: string
+          enum:
+          - XAdES
+          - CAdES
+          - JAdES
+          - PAdES
+          - PKCS7
+        signatureLevel:
+          type: string
+          enum:
+          - XML-NOT-ETSI
+          - XAdES-BES
+          - XAdES-EPES
+          - XAdES-T
+          - XAdES-LT
+          - XAdES-C
+          - XAdES-X
+          - XAdES-XL
+          - XAdES-A
+          - XAdES-ERS
+          - XAdES-BASELINE-B
+          - XAdES-BASELINE-T
+          - XAdES-BASELINE-LT
+          - XAdES-BASELINE-LTA
+          - CMS-NOT-ETSI
+          - CAdES-BES
+          - CAdES-EPES
+          - CAdES-T
+          - CAdES-LT
+          - CAdES-C
+          - CAdES-X
+          - CAdES-XL
+          - CAdES-A
+          - CAdES-ERS
+          - CAdES-BASELINE-B
+          - CAdES-BASELINE-T
+          - CAdES-BASELINE-LT
+          - CAdES-BASELINE-LTA
+          - PDF-NOT-ETSI
+          - PKCS7-B
+          - PKCS7-T
+          - PKCS7-LT
+          - PKCS7-LTA
+          - PAdES-BES
+          - PAdES-EPES
+          - PAdES-LTV
+          - PAdES-BASELINE-B
+          - PAdES-BASELINE-T
+          - PAdES-BASELINE-LT
+          - PAdES-BASELINE-LTA
+          - JSON-NOT-ETSI
+          - JAdES-BASELINE-B
+          - JAdES-BASELINE-T
+          - JAdES-BASELINE-LT
+          - JAdES-BASELINE-LTA
+          - UNKNOWN
+        digestAlgorithm:
+          type: string
+          enum:
+          - SHA1
+          - SHA224
+          - SHA256
+          - SHA384
+          - SHA512
+          - SHA3_224
+          - SHA3_256
+          - SHA3_384
+          - SHA3_512
+          - SHAKE128
+          - SHAKE256
+          - SHAKE256_512
+          - RIPEMD160
+          - MD2
+          - MD5
+          - WHIRLPOOL
+        certificate:
+          type: string
+          format: byte
+        certificateChain:
+          type: array
+          items:
+            type: string
+            format: byte
+        encryptionAlgorithm:
+          type: string
+          enum:
+          - RSA
+          - RSASSA_PSS
+          - DSA
+          - ECDSA
+          - PLAIN_ECDSA
+          - X25519
+          - X448
+          - EDDSA
+          - HMAC
+        signatureValue:
+          type: string
+          format: byte
+        contentTimestamp:
+          $ref: "#/components/schemas/TimestampDTO"
+        documentToCounterSign:
+          type: string
+          format: binary
+        signatureIdToCounterSign:
+          type: string
+        originalFiles:
+          type: array
+          items:
+            $ref: "#/components/schemas/OriginalFile"
+      required:
+      - digestAlgorithm
+      - signatureForm
+      - signatureIdToCounterSign
+      - signatureLevel
+    OriginalFile:
+      type: object
+      properties:
+        completeFile:
+          type: string
+          format: binary
+        filename:
+          type: string
+        base64Digest:
+          type: string
+        digestAlgorithm:
+          type: string
+          enum:
+          - SHA1
+          - SHA224
+          - SHA256
+          - SHA384
+          - SHA512
+          - SHA3_224
+          - SHA3_256
+          - SHA3_384
+          - SHA3_512
+          - SHAKE128
+          - SHAKE256
+          - SHAKE256_512
+          - RIPEMD160
+          - MD2
+          - MD5
+          - WHIRLPOOL
+        notEmpty:
+          type: boolean
