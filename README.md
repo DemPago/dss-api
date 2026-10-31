@@ -61,8 +61,8 @@ docker push dssapiregistry.azurecr.io/dss-api:latest
 
 # 2. Rideploy su Azure Container Instances
 az container create \
-  --subscription 2d2f0c09-adad-4118-8ef8-8bf737bdca76 \
-  --resource-group prova-dem \
+  --subscription <AZURE_SUBSCRIPTION> \
+  --resource-group <AZURE_RESOURCE_GROUP> \
   --name dss-api \
   --image dssapiregistry.azurecr.io/dss-api:latest \
   --registry-login-server dssapiregistry.azurecr.io \
@@ -73,7 +73,24 @@ az container create \
   --location northeurope --os-type Linux
 ```
 
-> La PR [#2](https://github.com/DemPago/dss-api/pull/2) contiene un workflow GitHub Actions per automatizzare questo processo — richiede un service principal Azure (`az ad sp create-for-rbac`).
+## CI/CD con GitHub Actions
+
+Ad ogni push su `main` il workflow `.github/workflows/deploy.yml` esegue build → push ACR → redeploy ACI.
+
+### Secrets (GitHub → Settings → Secrets and variables → Actions)
+
+| Secret | Come ottenerlo |
+|--------|----------------|
+| `REGISTRY_USERNAME` | `dssapiregistry` (fisso) |
+| `REGISTRY_PASSWORD` | `az acr credential show -n dssapiregistry --query passwords[0].value -o tsv` |
+| `AZURE_CREDENTIALS` | JSON service principal: `az ad sp create-for-rbac --name dss-api-deploy --role contributor --scopes /subscriptions/<id>/resourceGroups/<rg> --sdk-auth` |
+
+### Variables (GitHub → Settings → Secrets and variables → Actions → Variables)
+
+| Variable | Esempio |
+|----------|---------|
+| `AZURE_SUBSCRIPTION` | ID della subscription Azure |
+| `AZURE_RESOURCE_GROUP` | Nome del resource group |
 
 ## Note di sicurezza
 

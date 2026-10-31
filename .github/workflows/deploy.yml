@@ -23,7 +23,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: dssapiregistry.azurecr.io/dss-api:latest
+          tags: |
+            dssapiregistry.azurecr.io/dss-api:latest
+            dssapiregistry.azurecr.io/dss-api:${{ github.sha }}
           # Cache su GitHub Actions per non ri-scaricare il bundle DSS ad ogni run
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -36,10 +38,10 @@ jobs:
       - name: Redeploy ACI
         run: |
           az container create \
-            --subscription 2d2f0c09-adad-4118-8ef8-8bf737bdca76 \
-            --resource-group prova-dem \
+            --subscription ${{ vars.AZURE_SUBSCRIPTION }} \
+            --resource-group ${{ vars.AZURE_RESOURCE_GROUP }} \
             --name dss-api \
-            --image dssapiregistry.azurecr.io/dss-api:latest \
+            --image dssapiregistry.azurecr.io/dss-api:${{ github.sha }} \
             --registry-login-server dssapiregistry.azurecr.io \
             --registry-username ${{ secrets.REGISTRY_USERNAME }} \
             --registry-password ${{ secrets.REGISTRY_PASSWORD }} \
