@@ -37,6 +37,8 @@ RUN addgroup -S tomcat && adduser -S tomcat -G tomcat && \
 
 COPY --from=builder --chown=tomcat:tomcat /app /app
 
+RUN find /app/dss-bundle -name "*.sh" -exec chmod +x {} \;
+
 WORKDIR /app/dss-bundle
 
 ENV TOMCAT_VERSION=${TOMCAT_VERSION}
