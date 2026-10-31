@@ -32,10 +32,10 @@ LABEL description="DSS Demo Bundle - EU Digital Signature Service" \
       version="${DSS_VERSION}"
 
 # Utente non-root
-RUN addgroup -S tomcat && adduser -S tomcat -G tomcat
+RUN addgroup -S tomcat && adduser -S tomcat -G tomcat && \
+    apk add --no-cache wget
 
-COPY --from=builder /app /app
-RUN chown -R tomcat:tomcat /app
+COPY --from=builder --chown=tomcat:tomcat /app /app
 
 WORKDIR /app/dss-bundle
 
