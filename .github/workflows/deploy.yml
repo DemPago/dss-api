@@ -1,11 +1,11 @@
-name: Build & Deploy
+name: Build & Push
 
 on:
   push:
     branches: [main]
 
 jobs:
-  build-and-deploy:
+  build-and-push:
     runs-on: ubuntu-24.04
 
     steps:
@@ -29,25 +29,3 @@ jobs:
           # Cache su GitHub Actions per non ri-scaricare il bundle DSS ad ogni run
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-      - name: Log in to Azure
-        uses: azure/login@v2.3.0
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Redeploy ACI
-        run: |
-          az container create \
-            --subscription ${{ vars.AZURE_SUBSCRIPTION }} \
-            --resource-group ${{ vars.AZURE_RESOURCE_GROUP }} \
-            --name dss-api \
-            --image dssapiregistry.azurecr.io/dss-api:${{ github.sha }} \
-            --registry-login-server dssapiregistry.azurecr.io \
-            --registry-username ${{ secrets.REGISTRY_USERNAME }} \
-            --registry-password ${{ secrets.REGISTRY_PASSWORD }} \
-            --cpu 1 \
-            --memory 2 \
-            --ports 8080 \
-            --ip-address Public \
-            --location northeurope \
-            --os-type Linux
