@@ -51,6 +51,47 @@ docker run -d -p 8080:8080 -e JAVA_OPTS="-Xmx1g -Xms512m" dss-api
 docker build --build-arg DSS_VERSION=6.4+20260415 -t dss-api .
 ```
 
+## Deploy manuale su Azure
+
+```bash
+# 1. Build e push su ACR
+az acr login -n dssapiregistry
+docker build -t dssapiregistry.azurecr.io/dss-api:latest .
+docker push dssapiregistry.azurecr.io/dss-api:latest
+
+# 2. Rideploy su Azure Container Instances
+az container create \
+  --subscription <AZURE_SUBSCRIPTION> \
+  --resource-group <AZURE_RESOURCE_GROUP> \
+  --name dss-api \
+  --image dssapiregistry.azurecr.io/dss-api:latest \
+  --registry-login-server dssapiregistry.azurecr.io \
+  --registry-username dssapiregistry \
+  --registry-password <password da: az acr credential show -n dssapiregistry> \
+  --cpu 1 --memory 2 \
+  --ports 8080 --ip-address Public \
+  --location northeurope --os-type Linux
+```
+
+## CI/CD con GitHub Actions
+
+Ad ogni push su `main` il workflow `.github/workflows/deploy.yml` esegue build → push ACR → redeploy ACI.
+
+### Secrets (GitHub → Settings → Secrets and variables → Actions)
+
+| Secret | Come ottenerlo |
+|--------|----------------|
+| `REGISTRY_USERNAME` | `dssapiregistry` (fisso) |
+| `REGISTRY_PASSWORD` | `az acr credential show -n dssapiregistry --query passwords[0].value -o tsv` |
+| `AZURE_CREDENTIALS` | JSON service principal: `az ad sp create-for-rbac --name dss-api-deploy --role contributor --scopes /subscriptions/<id>/resourceGroups/<rg> --sdk-auth` |
+
+### Variables (GitHub → Settings → Secrets and variables → Actions → Variables)
+
+| Variable | Esempio |
+|----------|---------|
+| `AZURE_SUBSCRIPTION` | ID della subscription Azure |
+| `AZURE_RESOURCE_GROUP` | Nome del resource group |
+
 ## Note di sicurezza
 
 - Il container gira con utente non-root (`tomcat`)
